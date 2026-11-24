@@ -1,73 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Redline Royale | Fashion &amp; Apparel Store</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f7f5f0; color: #292528; line-height: 1.6; }
-  .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; text-align: center; }
-  .hero { padding: 80px 20px; background: linear-gradient(135deg, #7a334f 0%, #63283e 100%); color: white; border-radius: 12px; margin-bottom: 40px; }
-  .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-  .hero p { font-size: 1.25rem; opacity: 0.95; margin-bottom: 2rem; }
-  .btn { display: inline-block; padding: 14px 32px; background: #0097b2; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; margin: 0 8px; transition: background 0.3s; }
-  .btn:hover { background: #007a94; }
-  .btn-secondary { background: #71696c; }
-  .btn-secondary:hover { background: #5c5457; }
-  .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-top: 40px; }
-  .feature { background: white; padding: 24px; border-radius: 8px; border: 1px solid #d4cfc9; }
-  .feature h3 { color: #7a334f; margin-bottom: 8px; }
-  .feature p { color: #71696c; font-size: 0.95rem; }
-  .footer-note { margin-top: 60px; padding-top: 30px; border-top: 1px solid #d4cfc9; color: #71696c; font-size: 0.85rem; }
-  .status-badge { display: inline-block; padding: 6px 14px; background: #1f9d3a; color: white; border-radius: 20px; font-size: 0.85rem; margin-bottom: 1rem; }
-  .status-badge.offline { background: #b3261e; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redline Royale | Pieces to wear on repeat</title>
+  <link rel="icon" type="image/svg+xml" href="public/favicon.svg">
+  <link rel="stylesheet" href="public/style.css">
 </head>
-<body>
-
-<div class="container">
-  <div class="hero">
-    <div class="status-badge" id="serverStatus">Checking server...</div>
-    <h1>Redline Royale</h1>
-    <p>Fashion &amp; Apparel Store &mdash; Dynamic Web Programming (EC3352)</p>
-    <div>
-      <a class="btn" href="public/store.html">Enter Store</a>
-      <a class="btn btn-secondary" href="public/vendor-portal.html">Vendor Portal</a>
-    </div>
+<body class="home-page">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">Redline Royale</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav site-tools" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="store-nav" id="primary-nav" aria-label="Shop categories">
+    <a href="public/index.html">New In</a>
+    <a href="public/index.html">Clothing</a>
+    <a href="public/index.html">Shoes</a>
+    <a href="public/index.html">Accessories</a>
+  </nav>
+  <div class="header-tools" id="site-tools">
+    <form class="header-search" action="public/index.html" method="get" role="search">
+      <input type="search" name="q" placeholder="Search products" aria-label="Search products">
+    </form>
+    <a class="header-bag" href="public/store.html">Cart (0)</a>
+    <a class="header-orders" href="public/store.html">My orders</a>
+    <a class="header-account" href="public/store.html">Sign in</a>
   </div>
-
-  <div class="feature-grid">
-    <div class="feature">
-      <h3>B2C Fashion Store</h3>
-      <p>Browse, search, and shop fashion apparel with dynamic product catalogue and smart filters.</p>
-    </div>
-    <div class="feature">
-      <h3>Shopping Cart &amp; Checkout</h3>
-      <p>Session-based cart with delivery or collection options and cash on delivery payment.</p>
-    </div>
-    <div class="feature">
-      <h3>Vendor Management</h3>
-      <p>Vendors can add, edit, and delete products, accept or discard orders, and view sales reports.</p>
-    </div>
-    <div class="feature">
-      <h3>Reports &amp; Analytics</h3>
-      <p>Date-range reports for vendors and customers with CSV and Excel export.</p>
-    </div>
-  </div>
-
-  <div class="footer-note">
-    <p><strong>Redline Royale</strong> is a fictitious business created for EC3352 Dynamic Web Programming coursework at the university. Academic demonstration only.</p>
-    <p>Demo accounts: vendor@redlineroyale.test / customer@redlineroyale.test / admin@redlineroyale.test (Password: Demo123!)</p>
-    <p><a href="https://github.com/Bishu112/00022140_BishwambharThakur_EC3352_Assignment2" style="color:#7a334f;">View Source Code on GitHub</a></p>
-  </div>
+</header>
+<main class="wrap" id="main-content">
+<div class="page-kicker">HOME</div>
+<h1 class="page-heading">Pieces to wear on repeat</h1>
+<section class="home-hero">
+  <p class="page-kicker">NEW SEASON &middot; RESPONSIBLY CHOSEN</p>
+  <h2>Considered pieces, made to last.</h2>
+  <p>Thoughtful apparel from independent labels.</p>
+  <a class="primary-link" href="public/store.html">Explore new arrivals</a>
+</section>
+<h2 class="section-title">Shop by category</h2>
+<div class="category-links">
+  <a href="public/store.html">Clothing</a>
+  <a href="public/store.html">Shoes</a>
+  <a href="public/store.html">Accessories</a>
 </div>
-
-<script>
-  // On GitHub Pages (static hosting) PHP cannot run, so show static preview status.
-  document.getElementById('serverStatus').textContent = 'Static Preview (GitHub Pages)';
-  document.getElementById('serverStatus').style.background = '#71696c';
-</script>
-
+<nav class="product-tabs">
+  <a href="public/store.html">Popular</a><span>&middot;</span>
+  <a href="public/store.html">Recent</a><span>&middot;</span>
+  <a href="public/store.html">Most viewed</a><span>&middot;</span>
+  <a href="public/store.html">Most purchased</a><span>&middot;</span>
+  <a href="public/store.html">Recommended</a>
+</nav>
+<h2 class="section-title">All products <span class="home-product-count">10</span></h2>
+<div class="home-products">
+  <a class="home-product" href="public/store.html"><img src="public/images/products/kurta.png" alt="Heritage Cotton Kurta"><strong>Heritage Cotton Kurta</strong><span>Rs. 3,200.00</span><small>Kurtas &middot; In stock &middot; Details &rarr;</small></a>
+  <a class="home-product" href="public/store.html"><img src="public/images/products/sneakers.png" alt="Canvas Sneakers"><strong>Canvas Sneakers</strong><span>Rs. 3,200.00</span><small>Shoes &middot; In stock &middot; Details &rarr;</small></a>
+  <a class="home-product" href="public/store.html"><img src="public/images/products/heritage-jacket.png" alt="Wool Blend Heritage Jacket"><strong>Wool Blend Heritage Jacket</strong><span>Rs. 7,800.00</span><small>Jackets &middot; In stock &middot; Details &rarr;</small></a>
+  <a class="home-product" href="public/store.html"><img src="public/images/products/dhaka-topi.png" alt="Dhaka Topi"><strong>Dhaka Topi</strong><span>Rs. 1,200.00</span><small>Accessories &middot; In stock &middot; Details &rarr;</small></a>
+  <a class="home-product" href="public/store.html"><img src="public/images/products/leather-shoes.png" alt="Leather Oxford Shoes"><strong>Leather Oxford Shoes</strong><span>Rs. 6,800.00</span><small>Shoes &middot; In stock &middot; Details &rarr;</small></a>
+  <a class="home-product" href="public/store.html"><img src="public/images/products/linen-shirt.png" alt="Linen Summer Shirt"><strong>Linen Summer Shirt</strong><span>Rs. 2,800.00</span><small>Shirts &middot; In stock &middot; Details &rarr;</small></a>
+  <a class="home-product" href="public/store.html"><img src="public/images/products/nepali-dhaka-shirt.png" alt="Nepali Dhaka Shirt"><strong>Nepali Dhaka Shirt</strong><span>Rs. 3,500.00</span><small>Shirts &middot; In stock &middot; Details &rarr;</small></a>
+  <a class="home-product" href="public/store.html"><img src="public/images/products/silk-blazer.png" alt="Silk Blend Blazer"><strong>Silk Blend Blazer</strong><span>Rs. 9,500.00</span><small>Jackets &middot; In stock &middot; Details &rarr;</small></a>
+  <a class="home-product" href="public/store.html"><img src="public/images/products/waistcoat.png" alt="Embroidered Waistcoat"><strong>Embroidered Waistcoat</strong><span>Rs. 4,500.00</span><small>Waistcoats &middot; In stock &middot; Details &rarr;</small></a>
+  <a class="home-product" href="public/store.html"><img src="public/images/products/belt.png" alt="Handcrafted Leather Belt"><strong>Handcrafted Leather Belt</strong><span>Rs. 1,800.00</span><small>Accessories &middot; In stock &middot; Details &rarr;</small></a>
+</div>
+<p class="muted" style="margin-top:16px;">Static preview for GitHub Pages. Full dynamic features (cart, checkout, vendor dashboard, reports) require PHP + MySQL hosting.</p>
+</main>
+<footer class="site-footer">
+  <p class="footer-copy">&copy; 2026 Redline Royale. All rights reserved.</p>
+  <p class="footer-disclaimer">Redline Royale is a fictitious business created for EC3352 Dynamic Web Programming coursework at the university. Product images and content are for academic demonstration only.</p>
+  <p><a href="https://github.com/Bishu112/00022140_BishwambharThakur_EC3352_Assignment2" style="color:#7a334f;">View Source Code on GitHub</a></p>
+</footer>
+<script src="public/app.js" defer></script>
 </body>
 </html>
