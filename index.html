@@ -32,8 +32,8 @@
     <h1>Redline Royale</h1>
     <p>Fashion &amp; Apparel Store &mdash; Dynamic Web Programming (EC3352)</p>
     <div>
-      <a class="btn" href="public/home.php">Enter Store</a>
-      <a class="btn btn-secondary" href="public/vendor-dashboard.php">Vendor Portal</a>
+      <a class="btn" href="public/index.html">Enter Store (Static Preview)</a>
+      <a class="btn btn-secondary" href="https://github.com/Bishu112/00022140_BishwambharThakur_EC3352_Assignment2">View Source Code</a>
     </div>
   </div>
 
@@ -63,15 +63,9 @@
 </div>
 
 <script>
-  fetch('public/home.php', { method: 'HEAD', cache: 'no-store' })
-    .then(() => {
-      document.getElementById('serverStatus').textContent = 'Server Online';
-      document.getElementById('serverStatus').style.background = '#1f9d3a';
-    })
-    .catch(() => {
-      document.getElementById('serverStatus').textContent = 'Static Preview (GitHub Pages)';
-      document.getElementById('serverStatus').style.background = '#71696c';
-    });
+  // On GitHub Pages (static hosting) PHP cannot run, so show static preview status.
+  document.getElementById('serverStatus').textContent = 'Static Preview (GitHub Pages)';
+  document.getElementById('serverStatus').style.background = '#71696c';
 </script>
 
 </body>
