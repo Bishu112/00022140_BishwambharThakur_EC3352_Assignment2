@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redline Royale | Fashion &amp; Apparel Store</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f7f5f0; color: #292528; line-height: 1.6; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; text-align: center; }
+  .hero { padding: 80px 20px; background: linear-gradient(135deg, #7a334f 0%, #63283e 100%); color: white; border-radius: 12px; margin-bottom: 40px; }
+  .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+  .hero p { font-size: 1.25rem; opacity: 0.95; margin-bottom: 2rem; }
+  .btn { display: inline-block; padding: 14px 32px; background: #0097b2; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; margin: 0 8px; transition: background 0.3s; }
+  .btn:hover { background: #007a94; }
+  .btn-secondary { background: #71696c; }
+  .btn-secondary:hover { background: #5c5457; }
+  .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-top: 40px; }
+  .feature { background: white; padding: 24px; border-radius: 8px; border: 1px solid #d4cfc9; }
+  .feature h3 { color: #7a334f; margin-bottom: 8px; }
+  .feature p { color: #71696c; font-size: 0.95rem; }
+  .footer-note { margin-top: 60px; padding-top: 30px; border-top: 1px solid #d4cfc9; color: #71696c; font-size: 0.85rem; }
+  .status-badge { display: inline-block; padding: 6px 14px; background: #1f9d3a; color: white; border-radius: 20px; font-size: 0.85rem; margin-bottom: 1rem; }
+  .status-badge.offline { background: #b3261e; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="hero">
+    <div class="status-badge" id="serverStatus">Checking server...</div>
+    <h1>Redline Royale</h1>
+    <p>Fashion &amp; Apparel Store &mdash; Dynamic Web Programming (EC3352)</p>
+    <div>
+      <a class="btn" href="public/home.php">Enter Store</a>
+      <a class="btn btn-secondary" href="public/vendor-dashboard.php">Vendor Portal</a>
+    </div>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature">
+      <h3>B2C Fashion Store</h3>
+      <p>Browse, search, and shop fashion apparel with dynamic product catalogue and smart filters.</p>
+    </div>
+    <div class="feature">
+      <h3>Shopping Cart &amp; Checkout</h3>
+      <p>Session-based cart with delivery or collection options and cash on delivery payment.</p>
+    </div>
+    <div class="feature">
+      <h3>Vendor Management</h3>
+      <p>Vendors can add, edit, and delete products, accept or discard orders, and view sales reports.</p>
+    </div>
+    <div class="feature">
+      <h3>Reports &amp; Analytics</h3>
+      <p>Date-range reports for vendors and customers with CSV and Excel export.</p>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <p><strong>Redline Royale</strong> is a fictitious business created for EC3352 Dynamic Web Programming coursework at the university. Academic demonstration only.</p>
+    <p>Demo accounts: vendor@redlineroyale.test / customer@redlineroyale.test / admin@redlineroyale.test (Password: Demo123!)</p>
+  </div>
+</div>
+
+<script>
+  fetch('public/home.php', { method: 'HEAD', cache: 'no-store' })
+    .then(() => {
+      document.getElementById('serverStatus').textContent = 'Server Online';
+      document.getElementById('serverStatus').style.background = '#1f9d3a';
+    })
+    .catch(() => {
+      document.getElementById('serverStatus').textContent = 'Static Preview (GitHub Pages)';
+      document.getElementById('serverStatus').style.background = '#71696c';
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Local database credentials and environment settings
+/config.php
+/.env
+/.env.*
+!/config.example.php
+
+# Archived implementation retained beside the active project
+/_previous_site_2026-11-24/
+
+# Generated files and local editor/OS metadata
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
