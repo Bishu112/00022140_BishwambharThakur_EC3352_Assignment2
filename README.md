@@ -16,6 +16,8 @@ Database Interaction demo for the Redline Royale B2C fashion store.
 
 The first request creates and seeds the database if it is missing. Demo password for all roles: `Demo123!`.
 
+For a real online link, GitHub Pages is not enough because it cannot run PHP/MySQL. Follow `DEPLOY_ONLINE.md` to upload the `main` branch to a PHP host and import `database/redline_royale_host.sql`.
+
 | Role | Email |
 |---|---|
 | Customer | `customer@redlineroyale.test` |
