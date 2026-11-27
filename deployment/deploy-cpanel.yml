@@ -1,0 +1,54 @@
+name: Deploy Redline Royale to cPanel
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main branch
+        uses: actions/checkout@v4
+
+      - name: Build live config.php from GitHub Secrets
+        env:
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        run: |
+          php -r '
+          $config = [
+              "host" => getenv("DB_HOST"),
+              "port" => (int)(getenv("DB_PORT") ?: 3306),
+              "database" => getenv("DB_NAME"),
+              "username" => getenv("DB_USER"),
+              "password" => getenv("DB_PASSWORD"),
+              "charset" => "utf8mb4",
+          ];
+          if (!$config["host"] || !$config["database"] || !$config["username"]) {
+              fwrite(STDERR, "DB_HOST, DB_NAME and DB_USER secrets are required.\n");
+              exit(1);
+          }
+          file_put_contents("config.php", "<?php\nreturn " . var_export($config, true) . ";\n");
+          echo "Generated config.php for " . $config["database"] . "\n";
+          '
+
+      - name: Upload files to cPanel
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT || '21' }}
+          protocol: ${{ secrets.FTP_PROTOCOL || 'ftp' }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          local-dir: ./
+          exclude: |
+            .git*
+            .git/**
+            .github/**

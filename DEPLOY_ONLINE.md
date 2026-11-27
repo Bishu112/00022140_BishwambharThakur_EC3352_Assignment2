@@ -89,6 +89,32 @@ Test sign-in with:
 | Vendor | `vendor@redlineroyale.test` | `Demo123!` |
 | Admin | `admin@redlineroyale.test` | `Demo123!` |
 
+## Option B: deploy from GitHub to cPanel with GitHub Actions
+
+A ready-to-use workflow template is included at `deployment/deploy-cpanel.yml`. It builds `config.php` from GitHub Secrets, then uploads the PHP files by FTP. Secrets keep the real passwords out of the repository and out of chat.
+
+To activate it, open `deployment/deploy-cpanel.yml` on GitHub, copy its contents, then use **Add file → Create new file** and paste it into `.github/workflows/deploy-cpanel.yml` on the `main` branch. GitHub's web UI can create workflow files directly; the command-line token used for this submission cannot.
+
+In GitHub, open **Settings → Secrets and variables → Actions → New repository secret** and add:
+
+| Secret | Value |
+|---|---|
+| `FTP_SERVER` | FTP hostname from cPanel, for example `ftp.yourdomain.com` |
+| `FTP_USERNAME` | FTP account username |
+| `FTP_PASSWORD` | FTP account password |
+| `FTP_PORT` | `21` (or the port your host uses) |
+| `FTP_PROTOCOL` | `ftp` or `ftps` |
+| `FTP_SERVER_DIR` | Target folder, usually `/public_html/` or `/public_html/redline/` |
+| `DB_HOST` | Usually `localhost` in cPanel |
+| `DB_PORT` | `3306` |
+| `DB_NAME` | cPanel database name (often prefixed, e.g. `bishu_rr`) |
+| `DB_USER` | cPanel database user (often prefixed) |
+| `DB_PASSWORD` | cPanel database user password |
+
+Still import `database/redline_royale_host.sql` into that cPanel database through phpMyAdmin first.
+
+Then open **Actions → Deploy Redline Royale to cPanel → Run workflow**. After it finishes, visit your domain. The workflow overwrites the local-XAMPP `config.php` on the server with the live values automatically.
+
 ## Troubleshooting
 
 - **Database Unavailable:** recheck `config.php`; confirm `pdo_mysql` is enabled and the MySQL user has privileges on that exact database.
