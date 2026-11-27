@@ -32,9 +32,9 @@ include __DIR__.'/../includes/header.php';
     <input type="hidden" name="csrf" value="<?=e(csrf_token())?>">
     <input type="hidden" name="next" value="<?=e($next)?>">
     <label for="email">Email address</label>
-    <input id="email" type="email" name="email" placeholder="Enter email address" autocomplete="email" value="<?=e($formEmail)?>" required>
+    <input id="email" type="email" name="email" placeholder="customer@redlineroyale.test" autocomplete="email" value="<?=e($formEmail)?>" required>
     <label for="password">Password</label>
-    <div class="password-control"><input id="password" type="password" name="password" placeholder="Enter password" autocomplete="current-password" required><button class="password-toggle" type="button" data-password-toggle aria-controls="password" aria-pressed="false">Show</button></div>
+    <div class="password-control"><input id="password" type="password" name="password" placeholder="Demo123!" autocomplete="current-password" required><button class="password-toggle" type="button" data-password-toggle aria-controls="password" aria-pressed="false">Show</button></div>
     <p class="forgot-help"><a href="forgot-password.php">Forgot password?</a></p>
     <button type="submit">Sign in</button>
     <p class="auth-link"><a href="register.php">New customer? Create an account</a></p>

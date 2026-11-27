@@ -29,7 +29,7 @@ $pageTitle=e($p['title']).' | Redline Royale';$pageClass='product-detail-page';i
   <section class="detail-info" aria-labelledby="product-title">
     <p class="page-kicker product-category-kicker"><?=e($p['category'])?> · THE COLLECTION</p>
     <h1 id="product-title" class="product-detail-title"><?=e($p['title'])?></h1>
-    <p class="rating"><?php if((int)$rating['total']>0):?><?=str_repeat('★',(int)round((float)$rating['rating'])) . str_repeat('☆',5-(int)round((float)$rating['rating']))?> <span><?=e($rating['rating'])?> · <?= (int)$rating['total']?> reviews</span><?php else:?>No customer reviews yet<?php endif;?></p>
+    <p class="rating"><?php if((int)$rating['total']>0):?><?=str_repeat('★',(int)round((float)$rating['rating'])) . str_repeat('☆',5-(int)round((float)$rating['rating']))?> <span><?=e($rating['rating'])?> · <?=(int)$rating['total']?> <?=((int)$rating['total']===1?'review':'reviews')?></span><?php else:?>No customer reviews yet<?php endif;?></p>
     <div class="product-price-stock"><strong class="product-detail-price">Rs. <?=number_format((float)$p['price'],2)?></strong><span class="stock-pill <?=$p['stock']>0?'is-in-stock':'is-out-of-stock'?>"><?=$p['stock']>0?'In stock':'Out of stock'?></span></div>
     <form id="add-to-cart" action="cart.php" method="post" class="detail-buy">
       <input type="hidden" name="csrf" value="<?=e(csrf_token())?>"><input type="hidden" name="action" value="add"><input type="hidden" name="product_id" value="<?=$p['product_id']?>">

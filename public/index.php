@@ -16,7 +16,10 @@ $excerpt = static function ($text, $len = 90) {
     return (function_exists('mb_substr') ? mb_substr($t, 0, $len) : substr($t, 0, $len)).'…';
 };
 
-$sql = "SELECT p.product_id,p.title,p.description,p.price,p.stock,p.image_url,c.name category FROM products p JOIN categories c ON c.category_id=p.category_id WHERE p.status='active'";
+$sql = "SELECT p.product_id,p.title,p.description,p.price,p.stock,p.image_url,c.name category,
+       (SELECT ROUND(AVG(r.rating),1) FROM reviews r WHERE r.product_id=p.product_id) rating,
+       (SELECT COUNT(*) FROM reviews r WHERE r.product_id=p.product_id) review_count
+       FROM products p JOIN categories c ON c.category_id=p.category_id WHERE p.status='active'";
 $args = [];
 if ($q !== '') { $sql .= ' AND (p.title LIKE ? OR p.description LIKE ?)'; $args[] = "%$q%"; $args[] = "%$q%"; }
 if ($cat > 0) { $sql .= ' AND p.category_id=?'; $args[] = $cat; }
@@ -96,7 +99,7 @@ include __DIR__.'/../includes/header.php';
     <?php if ($products && $view === 'table'): ?>
       <div class="table-scroll" role="region" aria-label="Product table" tabindex="0">
         <table>
-          <thead><tr><th>Image</th><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Details</th></tr></thead>
+          <thead><tr><th>Image</th><th>Product</th><th>Category</th><th>Price</th><th>Rating</th><th>Stock</th><th>Details</th></tr></thead>
           <tbody>
           <?php foreach ($products as $p): ?>
             <tr>
@@ -104,6 +107,7 @@ include __DIR__.'/../includes/header.php';
               <td><?=e($p['title'])?></td>
               <td><?=e($p['category'])?></td>
               <td>Rs. <?=number_format((float)$p['price'],2)?></td>
+              <td><a href="product.php?id=<?=$p['product_id']?>#reviews"><?=(int)$p['review_count'] > 0 ? '★ '.e($p['rating']).' ('.(int)$p['review_count'].')' : 'No reviews'?></a></td>
               <td><?=$p['stock'] > 0 ? (int)$p['stock'] : 'Out of stock'?></td>
               <td><a href="product.php?id=<?=$p['product_id']?>">View</a></td>
             </tr>
@@ -118,6 +122,7 @@ include __DIR__.'/../includes/header.php';
             <a href="product.php?id=<?=$p['product_id']?>" aria-label="View <?=e($p['title'])?>"><img class="catalog-image" src="<?=e(asset_url(product_image_url($p)))?>" alt="<?=e($p['title'])?>" loading="lazy"></a>
             <h2><?=e($p['title'])?></h2>
             <p class="catalog-desc"><?=e($excerpt($p['description']))?></p>
+            <a class="catalog-rating" href="product.php?id=<?=$p['product_id']?>#reviews"><?=(int)$p['review_count'] > 0 ? '★ '.e($p['rating']).' · '.(int)$p['review_count'].' review'.((int)$p['review_count'] === 1 ? '' : 's') : 'No reviews yet'?></a>
             <p class="price">Rs. <?=number_format((float)$p['price'],2)?></p>
             <p class="catalog-category"><?=e($p['category'])?> · <?=$p['stock'] > 0 ? (int)$p['stock'].' in stock' : 'Out of stock'?></p>
             <?php if ($p['stock'] > 0): ?>

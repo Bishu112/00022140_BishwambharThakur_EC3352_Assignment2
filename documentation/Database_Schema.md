@@ -43,6 +43,14 @@ orders 1:many order_status_history
 | user_id | INT UNSIGNED | PK, AUTO_INCREMENT | Unique user identifier |
 | full_name | VARCHAR(120) | NOT NULL | User's full name |
 | email | VARCHAR(190) | NOT NULL, UNIQUE | User's email address (login credential) |
+| phone | VARCHAR(40) | NULL | Saved contact number for account settings |
+| address | VARCHAR(255) | NULL | Default delivery address |
+| city | VARCHAR(80) | NULL | Default city / municipality |
+| district | VARCHAR(80) | NULL | Default district |
+| postal_code | VARCHAR(20) | NULL | Default postal code |
+| preferred_size | VARCHAR(40) | NULL | Saved size preference |
+| preferred_colour | VARCHAR(80) | NULL | Saved colour preference |
+| updates_opt_in | TINYINT(1) | NOT NULL DEFAULT 0 | Opt-in flag for store updates |
 | password_hash | VARCHAR(255) | NOT NULL | bcrypt-hashed password |
 | role | ENUM('customer','vendor','admin') | NOT NULL DEFAULT 'customer' | Account role |
 | created_at | TIMESTAMP | NOT NULL DEFAULT CURRENT_TIMESTAMP | Account creation timestamp |
@@ -174,7 +182,7 @@ The SQL script seeds:
 - **3 users:** 1 vendor, 1 customer, 1 admin (password: `Demo123!` for all)
 - **1 vendor profile:** Redline Royale Demo, Kathmandu, Nepal
 - **6 categories:** Kurtas, Shirts, Jackets, Waistcoats, Accessories, Shoes
-- **13 products:** Sample fashion & apparel items with prices, stock, and images
+- **10 active products:** Sample fashion & apparel items with prices, stock, and images
 
 ---
 

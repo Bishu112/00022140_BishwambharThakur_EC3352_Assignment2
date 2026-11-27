@@ -226,7 +226,7 @@ DELETE FROM products WHERE product_id=? AND vendor_id=?;
 
 ## 10. Presentation Requirements Covered
 
-The following slides are included in `Presentation/Redline Royale.pptx`:
+The following slides are included in `Presentation/00022140_BishwambharThakur_EC3352_Assignment2.pptx`:
 
 1. Cover Page
 2. Project Team (title slide)

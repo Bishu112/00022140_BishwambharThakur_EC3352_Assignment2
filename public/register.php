@@ -46,9 +46,9 @@ include __DIR__.'/../includes/header.php';
     <input type="hidden" name="role" value="customer">
     <div class="fields">
       <div><label for="full-name">Full name</label><input id="full-name" name="full_name" placeholder="Enter full name" autocomplete="name" value="<?=e($name)?>" required></div>
-      <div><label for="signup-email">Email address</label><input id="signup-email" type="email" name="email" placeholder="Enter email address" autocomplete="email" value="<?=e($email)?>" required></div>
-      <div><label for="signup-password">Password</label><div class="password-control"><input id="signup-password" type="password" name="password" placeholder="Enter password" minlength="8" autocomplete="new-password" required><button class="password-toggle" type="button" data-password-toggle aria-controls="signup-password" aria-pressed="false">Show</button></div></div>
-      <div><label for="password-confirm">Confirm password</label><div class="password-control"><input id="password-confirm" type="password" name="password_confirm" placeholder="Enter confirm password" minlength="8" autocomplete="new-password" required><button class="password-toggle" type="button" data-password-toggle aria-controls="password-confirm" aria-pressed="false">Show</button></div></div>
+      <div><label for="signup-email">Email address</label><input id="signup-email" type="email" name="email" placeholder="customer@redlineroyale.test" autocomplete="email" value="<?=e($email)?>" required></div>
+      <div><label for="signup-password">Password</label><div class="password-control"><input id="signup-password" type="password" name="password" placeholder="Demo123!" minlength="8" autocomplete="new-password" required><button class="password-toggle" type="button" data-password-toggle aria-controls="signup-password" aria-pressed="false">Show</button></div></div>
+      <div><label for="password-confirm">Confirm password</label><div class="password-control"><input id="password-confirm" type="password" name="password_confirm" placeholder="Demo123!" minlength="8" autocomplete="new-password" required><button class="password-toggle" type="button" data-password-toggle aria-controls="password-confirm" aria-pressed="false">Show</button></div></div>
     </div>
     <button type="submit">Create account</button>
     <p class="auth-link"><a href="login.php">Already registered? Sign in</a></p>

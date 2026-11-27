@@ -4,7 +4,7 @@
 
 - PHP 8.1 or newer with `pdo_mysql`, `mbstring`, and file uploads enabled.
 - MySQL 8 or MariaDB with InnoDB and `utf8mb4` support.
-- The project folder `FINAL  WEBSITE DYNAMIC`.
+- This Assessment 2 submission folder.
 
 ## Start the application
 
@@ -27,13 +27,3 @@ The PHP application imports `database/redline_royale.sql` when the configured da
 | Vendor | `vendor@redlineroyale.test` | `Demo123!` |
 | Customer | `customer@redlineroyale.test` | `Demo123!` |
 | Admin | `admin@redlineroyale.test` | `Demo123!` |
-
-## Database check
-
-The non-destructive integration check is `tests/database_smoke.php`. Run it from the project root after the database is available:
-
-```powershell
-php tests/database_smoke.php
-```
-
-It checks required tables and performs temporary CRUD operations inside a transaction that is rolled back.

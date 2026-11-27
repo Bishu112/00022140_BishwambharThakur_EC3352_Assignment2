@@ -1,12 +1,12 @@
-# Redline Royale — EC3352 Assessment 2
+# Redline Royale — EC3352 Assessment 2 Submission
 
-Redline Royale is a PHP and MySQL fashion store built with HTML, CSS, and vanilla JavaScript. It demonstrates database design, PHP PDO, SQL CRUD, sessions, role-based pages, checkout, order tracking, and reports.
+Database Interaction demo for the Redline Royale B2C fashion store.
 
-## Run locally with XAMPP Lite
+## Run
 
-1. Start MySQL/MariaDB in XAMPP Lite. Ensure PHP has the `pdo_mysql` and `mbstring` extensions enabled.
-2. Open a terminal in this project folder (`FINAL  WEBSITE DYNAMIC`).
-3. Start the PHP server from the project root:
+1. Start MySQL/MariaDB and confirm `pdo_mysql` is enabled.
+2. Check `config.php` (default database `redline_royale_assignment2`, user `root`, empty password, automatic port 3306/3307).
+3. From this folder run:
 
    ```powershell
    php -S 127.0.0.1:8000 -t public
@@ -14,47 +14,33 @@ Redline Royale is a PHP and MySQL fashion store built with HTML, CSS, and vanill
 
 4. Open `http://127.0.0.1:8000/index.html`.
 
-The first PHP page creates `redline_royale_assignment2` and imports `database/redline_royale.sql` when the database is missing. The seed now has 10 active men's products. If the database was already installed, run `database/migrations/2026-11-24-set-demo-catalog-to-10.sql` in phpMyAdmin; it adds missing demo items and marks three extras inactive while preserving records referenced by past orders. The home page displays the complete active catalog. Update `config.php` if the database host, port, or credentials differ on your computer. `config.example.php` is the portable template.
-
-## Demo accounts
-
-All seeded accounts use password `Demo123!`.
+The first request creates and seeds the database if it is missing. Demo password for all roles: `Demo123!`.
 
 | Role | Email |
 |---|---|
-| Vendor | `vendor@redlineroyale.test` |
 | Customer | `customer@redlineroyale.test` |
+| Vendor | `vendor@redlineroyale.test` |
 | Admin | `admin@redlineroyale.test` |
 
-## Project structure
+Extra demo reviewers (same password `Demo123!`): 30 Nepali customer accounts, for example `sita@redlineroyale.test` (Sita Gurung), `ram@redlineroyale.test` (Ram Shrestha) and `bikash.maharjan@redlineroyale.test` (Bikash Maharjan). Each product has three reviews from a different set of people.
 
-```text
-config.php                  Local database settings
-config.example.php          Portable settings template
-config/database.php         Loads local settings
-database/redline_royale.sql Database schema, ALTER statements, and demo data
-includes/                   Shared bootstrap, header, footer, report exports
-public/                     PHP pages, HTML entry, CSS, JS, and product images
-documentation/              Schema, installation, demo, and verification notes
-design-references/          Supplied storefront wireframes
-Presentation/               Original and corrected Assessment 2 decks
-tests/                      Non-destructive database integration smoke check
-```
+## What is included for Assessment 2
 
-## Main features
+| Requirement | Evidence in this folder |
+|---|---|
+| Database schema, tables, relationships/cardinality | `database/redline_royale.sql`, `documentation/Database_Schema.md`, `documentation/ER_Diagram.png` |
+| PHP–MySQL connection | `config.php`, `config.example.php`, `config/database.php`, `includes/bootstrap.php` |
+| INSERT from PHP | `public/register.php`, `public/vendor-register.php`, `public/product-list.php`, `public/admin-products.php`, `public/review.php`, `public/product-review.php` |
+| SELECT from PHP | `public/home.php`, `public/index.php`, `public/product.php`, `public/product-list.php`, `public/admin-product-view.php`, `public/admin-product-edit.php`, `public/reports.php` |
+| UPDATE from PHP | `public/product-list.php`, `public/vendor-orders.php`, `public/profile.php`, `public/admin-products.php`, `public/admin-product-edit.php` |
+| DELETE from PHP | `public/product-list.php`, `public/admin-products.php` |
+| PHP SESSION / status messages | `includes/bootstrap.php`, `includes/header.php`, `public/cart.php`, `public/checkout.php` |
+| 2–3 linked PHP pages per member | `public/` pages linked from `includes/header.php` |
+| Team presentation | `Presentation/00022140_BishwambharThakur_EC3352_Assignment2.pptx` |
+| Customer account settings | `public/profile.php` — contact, delivery and preference UPDATE with activity SELECTs |
+| Original wireframe theme | `public/style.css` — `#7A334F` plum with neutral greys, restored after the temporary premium repaint |
+| Walkthrough of the data layer | `documentation/Assignment2_Demonstration.md`, `documentation/Demo_Script.md` |
 
-- Customer registration/login, catalogue search and filters, product pages, cart, checkout, and order tracking.
-- Vendor product view/add/edit/delete, order handling, profile, and date-range reports.
-- Admin product and order management and reports.
-- Cash on delivery or cash at collection; no card data is collected.
-- PDO prepared statements, password hashing, role checks, CSRF tokens, and session cart.
-- The seeded men's catalog uses bundled PNG product photos; image credits and source links are in `documentation/Product_Image_Sources.md`.
+Admin catalogue management uses a compact catalogue table in `public/admin-products.php`. `public/admin-product-view.php` and `public/admin-product-edit.php` open exactly one selected product at a time.
 
-## Troubleshooting
-
-- **Database unavailable:** start MySQL/MariaDB and enable `pdo_mysql` and `mbstring` in the PHP runtime used to serve the site. Check `config.php` credentials and port.
-- **404:** start the server with `-t public` and open the URL above.
-- **No products:** import `database/redline_royale.sql` into the configured database.
-- **Image upload errors:** ensure PHP upload limits allow files up to 5 MB; uploaded images are stored under `public/uploads/products/`.
-
-The `_previous_site_2026-11-24` folder is a retained backup of the older implementation. Run and submit the project root containing this README, not that backup.
+The full final integrated system is kept separately in the XAMPP project and in Assessment 4. Static design files and screenshots are kept in Assessment 3, so they are intentionally not in this Assessment 2 submission folder.
