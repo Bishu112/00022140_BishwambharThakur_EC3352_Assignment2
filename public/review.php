@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     check_csrf();
     try{
         $pdo->beginTransaction();
-        $st=$pdo->prepare("SELECT product_id,vendor_id,price,stock FROM products WHERE status='active' AND product_id IN ($marks) FOR UPDATE");
+        $st=$pdo->prepare("SELECT product_id,vendor_id,price,stock,title FROM products WHERE status='active' AND product_id IN ($marks) FOR UPDATE");
         $st->execute($ids);$products=$st->fetchAll();
         if(count($products)!==count($ids))throw new RuntimeException('A product is no longer available.');
         $total=0;
@@ -24,9 +24,9 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         $orderId=(int)$pdo->lastInsertId();
         $pdo->prepare('INSERT INTO transactions(order_id,payment_method,amount,payment_status) VALUES(?,?,?,?)')->execute([$orderId,$payment,$total,'pending']);
         $pdo->prepare('INSERT INTO order_status_history(order_id,changed_by,status,note) VALUES(?,?,?,?)')->execute([$orderId,signed_in()['user_id'],'placed','Order placed by customer']);
-        $line=$pdo->prepare('INSERT INTO order_items(order_id,product_id,vendor_id,quantity,unit_price) VALUES(?,?,?,?,?)');
+        $line=$pdo->prepare('INSERT INTO order_items(order_id,product_id,product_title,vendor_id,quantity,unit_price) VALUES(?,?,?,?,?,?)');
         $updateStock=$pdo->prepare('UPDATE products SET stock=stock-? WHERE product_id=?');
-        foreach($products as $product){$qty=(int)$cart[$product['product_id']];$line->execute([$orderId,$product['product_id'],$product['vendor_id'],$qty,$product['price']]);$updateStock->execute([$qty,$product['product_id']]);}
+        foreach($products as $product){$qty=(int)$cart[$product['product_id']];$line->execute([$orderId,$product['product_id'],$product['title'],$product['vendor_id'],$qty,$product['price']]);$updateStock->execute([$qty,$product['product_id']]);}
         $pdo->commit();
         unset($_SESSION['cart'],$_SESSION['cart_variants'],$_SESSION['checkout_details'],$_SESSION['payment_method']);
         header('Location: thank-you.php?order_id='.$orderId);exit;

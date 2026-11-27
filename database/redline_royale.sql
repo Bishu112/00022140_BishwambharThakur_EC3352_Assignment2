@@ -82,11 +82,13 @@ CREATE TABLE orders (
 CREATE TABLE order_items (
   order_item_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   order_id INT UNSIGNED NOT NULL,
-  product_id INT UNSIGNED NOT NULL,
+  -- product_id becomes NULL when a catalogue product is deleted; product_title keeps the historical name.
+  product_id INT UNSIGNED NULL,
+  product_title VARCHAR(180) NULL,
   vendor_id INT UNSIGNED NOT NULL,
   quantity INT UNSIGNED NOT NULL,
   unit_price DECIMAL(10,2) NOT NULL,
-  FOREIGN KEY (product_id) REFERENCES products(product_id),
+  FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE SET NULL,
   FOREIGN KEY (vendor_id) REFERENCES users(user_id)
 ) ENGINE=InnoDB;
 
@@ -119,7 +121,7 @@ CREATE TABLE reviews (
   rating TINYINT UNSIGNED NOT NULL CHECK (rating BETWEEN 1 AND 5),
   comment VARCHAR(1000) NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (product_id) REFERENCES products(product_id),
+  FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE,
   FOREIGN KEY (customer_id) REFERENCES users(user_id)
 ) ENGINE=InnoDB;
 

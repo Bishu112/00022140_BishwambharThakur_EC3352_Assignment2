@@ -33,6 +33,7 @@ The Assessment 2 folder is aligned with the coursework question and rubric after
 | Customer account settings | Expanded `profile.php` with contact, delivery, preference and activity panels; all account smoke assertions passed |
 | Visual theme | Original wireframe palette restored: `#7A334F` plum with neutral greys; temporary premium repaint removed |
 | Text contrast | Original wireframe text colours restored across storefront, dashboards, admin and account pages; static HTML matches the design report stylesheet |
+| Admin product deletion | Deleting a product linked to an order now succeeds; sold-item name/price are kept in order history |
 
 ## Presentation audit
 
@@ -56,6 +57,7 @@ The Assessment 2 folder is aligned with the coursework question and rubric after
 7. Expanded `public/profile.php` into a full Account Settings page with persisted contact, delivery and preference fields and activity figures, using the original wireframe styling. Added matching `users` columns to the SQL and schema notes, and updated presentation slides 8, 10 and 20.
 8. Reverted the temporary premium plum/gold/ivory repaint and restored the original wireframe colour values (`#7A334F` plum, neutral greys) across the stylesheet, including the added admin and account panels. Malformed CSS line breaks that had been stored as literal `\n` text remain repaired.
 9. Removed the extra sitewide readability overrides so headers, footers, hero panels and workspace chrome use the original wireframe colours again. The static HTML stylesheet was restored to the design-report version.
+10. Fixed the “linked to an order and cannot be deleted” failure: `order_items.product_id` is now nullable with `ON DELETE SET NULL` plus a `product_title` snapshot, reviews cascade on product delete, and both admin/vendor delete handlers snapshot the title before deleting. Vendor sold-item history uses a `LEFT JOIN` so deleted products still appear.
 
 ## Before demonstration
 

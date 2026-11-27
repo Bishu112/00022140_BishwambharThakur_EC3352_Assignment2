@@ -108,6 +108,8 @@ $pdo = new PDO(
 
 Note: customer order cancellation (`customer-dashboard.php`) is an UPDATE to status `discarded`, not a DELETE.
 
+Admins can delete a product even when it appears in an order. Before the DELETE, the handler copies the product title into `order_items.product_title`; the foreign key then uses `ON DELETE SET NULL`, so the sold-item name, quantity and unit price stay in the order history. Reviews and view logs use `ON DELETE CASCADE`.
+
 ---
 
 ## 6. PHP SESSION Usage

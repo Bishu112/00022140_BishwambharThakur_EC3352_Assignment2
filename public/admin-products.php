@@ -95,20 +95,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($action === 'delete') {
         $id = (int)($_POST['product_id'] ?? 0);
-        $find = $pdo->prepare('SELECT image_url FROM products WHERE product_id=?');
+        $find = $pdo->prepare('SELECT title,image_url FROM products WHERE product_id=?');
         $find->execute([$id]);
         $existing = $find->fetch();
         try {
+            $pdo->beginTransaction();
+            if ($existing) {
+                // Keep the sold-item name in past orders before ON DELETE SET NULL clears the link.
+                $snapshot = $pdo->prepare("UPDATE order_items SET product_title=? WHERE product_id=? AND (product_title IS NULL OR product_title='')");
+                $snapshot->execute([$existing['title'], $id]);
+            }
             $remove = $pdo->prepare('DELETE FROM products WHERE product_id=?');
             $remove->execute([$id]);
-            if ($remove->rowCount()) {
+            $deleted = $remove->rowCount();
+            $pdo->commit();
+            if ($deleted) {
                 if ($existing) remove_uploaded_admin_image($existing['image_url'], $uploadDirectory);
-                flash('Product deleted.');
+                flash('Product deleted. Past orders keep their item details.');
             } else {
                 flash('Product not found.');
             }
-        } catch (PDOException $error) {
-            flash('This product is linked to an order and cannot be deleted.');
+        } catch (Throwable $error) {
+            if ($pdo->inTransaction()) $pdo->rollBack();
+            flash('The product could not be deleted. Please try again.');
         }
         header('Location: admin-products.php'); exit;
     }
@@ -179,6 +188,8 @@ include __DIR__.'/../includes/header.php';
       </div>
     <?php endif; ?>
   </div>
+
+  <p class="muted">Administrators can delete any catalogue piece. Past orders keep the sold item's name and price after deletion.</p>
 
   <?php if ($products): ?>
     <div class="table-scroll workspace-product-table admin-product-table admin-premium-table" role="region" aria-label="Product catalogue" tabindex="0">
