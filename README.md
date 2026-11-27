@@ -44,7 +44,3 @@ Extra demo reviewers (same password `Demo123!`): 30 Nepali customer accounts, fo
 Admin catalogue management uses a compact catalogue table in `public/admin-products.php`. `public/admin-product-view.php` and `public/admin-product-edit.php` open exactly one selected product at a time.
 
 The full final integrated system is kept separately in the XAMPP project and in Assessment 4. Static design files and screenshots are kept in Assessment 3, so they are intentionally not in this Assessment 2 submission folder.
-
-## GitHub Pages demo
-
-The link https://bishu112.github.io/00022140_BishwambharThakur_EC3352_Assignment2/ opens the static HTML storefront copied from the Assessment 4 final system (`index.html`, `shop.html`, `product.html`, … with `css/`, `js/` and `img/`). GitHub Pages serves static files only, so the sign-in, cart, checkout and admin forms are visual demos there. Run the PHP application from `public/` in XAMPP for the working database-backed website.
