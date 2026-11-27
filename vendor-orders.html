@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vendor orders — Redline Royale</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="account-page vendor-page">
+  <header class="account-topbar"><div class="account-topbar-inner">
+    <a class="account-brand" href="index.html">Redline Royale</a>
+    <div class="topbar-actions"><a class="header-link" href="logout.html">Sign out</a></div>
+  </div></header>
+
+  <div class="account-shell">
+    <aside class="dash-sidebar"><nav class="dash-nav" aria-label="Vendor account">
+      <a href="vendor.html">Overview</a>
+      <a href="vendor-products.html">Products</a>
+      <a href="vendor-orders.html" class="active" aria-current="page">Orders</a>
+      <a href="vendor-reports.html">Reports</a>
+      <a href="vendor-profile.html">Profile</a>
+    </nav></aside>
+
+    <main class="dash-main">
+      <div class="report-head">
+        <p class="eyebrow">ORDER MANAGEMENT</p>
+        <h1 class="page-title">Order requests</h1>
+      </div>
+      
+      <section class="table-card" aria-labelledby="order-requests-title">
+        <h2 id="order-requests-title">Recent requests</h2>
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead><tr><th scope="col">Order</th><th scope="col">Customer</th><th scope="col">Items</th><th scope="col">Status</th><th scope="col">Total</th><th scope="col">Action</th></tr></thead>
+            <tbody>
+                              <tr>
+                  <td>RR-261127203714-B63C</td>
+                  <td>Ram Shrestha</td>
+                  <td>1</td>
+                  <td>New request</td>
+                  <td>Rs.12,999</td>
+                  <td>
+                                                              <div class="table-actions">
+                                                  <form method="post" action="vendor-orders.html" class="inline-form">
+                            <input type="hidden" name="csrf_token" value="374060c60c5ba7dab7f94d3fbc63f674585a2e5dc317743c4e76ac147d17f06a">                            <input type="hidden" name="order_id" value="6">
+                            <input type="hidden" name="order_action" value="accept">
+                            <button class="table-action" type="submit">Accept</button>
+                          </form>
+                                                  <form method="post" action="vendor-orders.html" class="inline-form">
+                            <input type="hidden" name="csrf_token" value="374060c60c5ba7dab7f94d3fbc63f674585a2e5dc317743c4e76ac147d17f06a">                            <input type="hidden" name="order_id" value="6">
+                            <input type="hidden" name="order_action" value="discard">
+                            <button class="table-action" type="submit">Discard</button>
+                          </form>
+                                              </div>
+                                      </td>
+                </tr>
+                              <tr>
+                  <td>RR-261127202302-D6E9</td>
+                  <td>Ram Shrestha</td>
+                  <td>1</td>
+                  <td>Discarded</td>
+                  <td>Rs.6,499</td>
+                  <td>
+                                                              <span class="muted">—</span>
+                                      </td>
+                </tr>
+                              <tr>
+                  <td>RR-1004</td>
+                  <td>Sita Gurung</td>
+                  <td>1</td>
+                  <td>Delivered</td>
+                  <td>Rs.8,999</td>
+                  <td>
+                                                              <span class="muted">—</span>
+                                      </td>
+                </tr>
+                              <tr>
+                  <td>RR-1003</td>
+                  <td>Ram Shrestha</td>
+                  <td>2</td>
+                  <td>Discarded</td>
+                  <td>Rs.19,298</td>
+                  <td>
+                                                              <span class="muted">—</span>
+                                      </td>
+                </tr>
+                              <tr>
+                  <td>RR-1002</td>
+                  <td>Sita Gurung</td>
+                  <td>1</td>
+                  <td>Delivered</td>
+                  <td>Rs.6,499</td>
+                  <td>
+                                                              <span class="muted">—</span>
+                                      </td>
+                </tr>
+                              <tr>
+                  <td>RR-1001</td>
+                  <td>Ram Shrestha</td>
+                  <td>2</td>
+                  <td>Delivered</td>
+                  <td>Rs.19,498</td>
+                  <td>
+                                                              <span class="muted">—</span>
+                                      </td>
+                </tr>
+                                        </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer"><p class="footer-note">Fictitious business — created as part of a university coursework.</p></footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

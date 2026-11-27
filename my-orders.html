@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My orders — Redline Royale</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="account-page customer-page">
+  <header class="account-topbar"><div class="account-topbar-inner">
+    <a class="account-brand" href="index.html">Redline Royale</a>
+    <div class="topbar-actions"><a class="header-link" href="vendor-signup.html">Become a Vendor</a> <a class="header-link" href="logout.html">Sign out</a></div>
+  </div></header>
+
+  <div class="account-shell">
+    <aside class="dash-sidebar"><nav class="dash-nav" aria-label="Customer account">
+      <a href="account.html">Overview</a>
+      <a href="my-orders.html" class="active" aria-current="page">My orders</a>
+      <a href="tracking.html">Order tracking</a>
+      <a href="reports.html">Reports</a>
+      <a href="profile.html">Profile</a>
+    </nav></aside>
+
+    <main class="dash-main">
+      <div class="report-head">
+        <p class="eyebrow">MY ORDERS</p>
+        <h1 class="page-title">Your order history</h1>
+      </div>
+      
+      <section class="table-card" aria-labelledby="orders-title">
+        <h2 id="orders-title">All orders</h2>
+        <div class="table-scroll">
+          <table class="data-table report-table">
+            <thead>
+              <tr><th scope="col">Order</th><th scope="col">Date</th><th scope="col">Items</th><th scope="col">Status</th><th scope="col">Total</th><th scope="col">Track</th></tr>
+            </thead>
+            <tbody>
+                                              <tr>
+                  <td>RR-261127203714-B63C</td>
+                  <td>27 Nov 2026</td>
+                  <td>1</td>
+                  <td>New request</td>
+                  <td>Rs.12,999</td>
+                  <td><a href="tracking.html?order=RR-261127203714-B63C">View</a></td>
+                </tr>
+                                              <tr>
+                  <td>RR-261127202302-D6E9</td>
+                  <td>27 Nov 2026</td>
+                  <td>1</td>
+                  <td>Discarded</td>
+                  <td>Rs.6,499</td>
+                  <td><a href="tracking.html?order=RR-261127202302-D6E9">View</a></td>
+                </tr>
+                                              <tr>
+                  <td>RR-1003</td>
+                  <td>25 Nov 2026</td>
+                  <td>2</td>
+                  <td>Discarded</td>
+                  <td>Rs.24,998</td>
+                  <td><a href="tracking.html?order=RR-1003">View</a></td>
+                </tr>
+                                              <tr>
+                  <td>RR-1001</td>
+                  <td>21 Nov 2026</td>
+                  <td>2</td>
+                  <td>Delivered</td>
+                  <td>Rs.19,498</td>
+                  <td><a href="tracking.html?order=RR-1001">View</a></td>
+                </tr>
+                                        </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer"><p class="footer-note">Fictitious business — created as part of a university coursework.</p></footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Track your order — Redline Royale</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="account-page customer-page">
+  <header class="account-topbar"><div class="account-topbar-inner">
+    <a class="account-brand" href="index.html">Redline Royale</a>
+    <div class="topbar-actions"><a class="header-link" href="vendor-signup.html">Become a Vendor</a> <a class="header-link" href="logout.html">Sign out</a></div>
+  </div></header>
+
+  <div class="account-shell">
+    <aside class="dash-sidebar"><nav class="dash-nav" aria-label="Customer account">
+      <a href="account.html">Overview</a>
+      <a href="my-orders.html">My orders</a>
+      <a href="tracking.html" class="active" aria-current="page">Order tracking</a>
+      <a href="reports.html">Reports</a>
+      <a href="profile.html">Profile</a>
+    </nav></aside>
+
+    <main class="dash-main">
+      <div class="dash-head track-head">
+        <p class="eyebrow">ORDER STATUS TRACKING</p>
+        <h1 class="page-title">Track your order</h1>
+      </div>
+
+              <form method="get" action="tracking.html" class="track-form">
+          <label for="track-order">Order number</label>
+          <select class="select" id="track-order" name="order">
+                          <option value="RR-261127203714-B63C" selected>RR-261127203714-B63C</option>
+                          <option value="RR-261127202302-D6E9">RR-261127202302-D6E9</option>
+                          <option value="RR-1003">RR-1003</option>
+                          <option value="RR-1001">RR-1001</option>
+                      </select>
+          <button class="btn" type="submit">Track</button>
+        </form>
+
+        <div class="track-summary">Order RR-261127203714-B63C · Placed 27 Nov 2026 · Rs.12,999</div>
+
+        <section class="track-card" aria-labelledby="status-title">
+          <p class="eyebrow" id="status-title">ORDER STATUS</p>
+          <ol class="timeline" aria-label="Order status timeline">
+                          <li class="timeline-step done current">
+                <span class="timeline-marker" aria-hidden="true"></span>
+                <span class="timeline-label">Order placed</span>
+              </li>
+                          <li class="timeline-step">
+                <span class="timeline-marker" aria-hidden="true"></span>
+                <span class="timeline-label">Vendor accepted</span>
+              </li>
+                          <li class="timeline-step">
+                <span class="timeline-marker" aria-hidden="true"></span>
+                <span class="timeline-label">Ready for delivery</span>
+              </li>
+                          <li class="timeline-step">
+                <span class="timeline-marker" aria-hidden="true"></span>
+                <span class="timeline-label">Shipped</span>
+              </li>
+                          <li class="timeline-step">
+                <span class="timeline-marker" aria-hidden="true"></span>
+                <span class="timeline-label">Delivered</span>
+              </li>
+                      </ol>
+          <h2 class="track-update">Current update: New request</h2>
+          <p class="track-copy">Cash on delivery. The timeline updates as the vendor processes your order.</p>
+        </section>
+
+        <section class="track-info" aria-label="Delivery and payment details">
+          <p>Delivery address: Thamel Kathmandu</p>
+          <p>Payment: Cash on delivery · No card details stored</p>
+          <p>Need help? Contact support with order RR-261127203714-B63C.</p>
+        </section>
+          </main>
+  </div>
+
+  <footer class="site-footer"><p class="footer-note">Fictitious business — created as part of a university coursework.</p></footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

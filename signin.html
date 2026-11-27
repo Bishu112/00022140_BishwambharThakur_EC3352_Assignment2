@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in — Redline Royale</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="store-page">
+  <header class="site-header"><div class="site-header-inner">
+    <a class="brand" href="index.html">Redline Royale</a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="shop.html">New In</a><a href="shop.html">Clothing</a><a href="shop.html">Shoes</a><a href="shop.html">Accessories</a>
+    </nav>
+    <form class="header-search" role="search" action="shop.html">
+      <label class="sr-only" for="header-search">Search products</label>
+      <input id="header-search" name="q" type="text" placeholder="Search products" autocomplete="off">
+    </form>
+    <div class="header-account"><a class="header-link" href="signin.html">Sign in</a> <a class="header-link" href="vendor-signup.html">Become a Vendor</a></div>
+  </header>
+
+  <main class="store-main">
+    <div class="page-head">
+      <p class="eyebrow">SIGN IN</p>
+      <h1 class="page-title">Welcome back !</h1>
+    </div>
+
+    <section class="auth-card" aria-labelledby="signin-title">
+      <p class="auth-logo">Redline Royale</p>
+      <h2 class="auth-title" id="signin-title">Welcome back to Redline Royale</h2>
+            
+      <form method="post" action="signin.html">
+        <input type="hidden" name="csrf_token" value="26a8f803c2d0672594701e30c8dac25ffc49050ca2c71869039812117953f43b">        <div class="auth-field">
+          <label for="signin-role">Sign in as</label>
+          <select class="select" id="signin-role" name="role">
+            <option value="customer" selected>Customer</option>
+            <option value="vendor">Vendor</option>
+          </select>
+        </div>
+        <div class="auth-field">
+          <label for="signin-email">Email address</label>
+          <input class="input" id="signin-email" name="email" type="email" placeholder="Enter email address" autocomplete="email" value="" required>
+        </div>
+        <div class="auth-field">
+          <label for="signin-password">Password</label>
+          <input class="input" id="signin-password" name="password" type="password" placeholder="Enter password" autocomplete="current-password" required>
+        </div>
+        <button class="btn btn-block btn-lg" type="submit">Sign in</button>
+      </form>
+
+      <p class="auth-alt"><a href="signup.html">New customer? Create an account</a></p>
+      <p class="auth-vendor">Vendor? <a href="vendor-signup.html">Register separately</a> · <a href="vendor-signup.html">Become a Vendor</a></p>
+      <p class="auth-hint">Demo accounts: customer@redlineroyale.test / vendor@redlineroyale.test / admin@redlineroyale.test — password <strong>Demo123!</strong></p>
+    </section>
+  </main>
+
+  <footer class="site-footer"><p class="footer-note">Fictitious business — created as part of a university coursework.</p></footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

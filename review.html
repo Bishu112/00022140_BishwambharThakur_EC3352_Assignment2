@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Review your order — Redline Royale</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="store-page">
+  <header class="site-header"><div class="site-header-inner">
+    <a class="brand" href="index.html">Redline Royale</a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="shop.html">New In</a><a href="shop.html">Clothing</a><a href="shop.html">Shoes</a><a href="shop.html">Accessories</a>
+    </nav>
+    <form class="header-search" role="search" action="shop.html">
+      <label class="sr-only" for="header-search">Search products</label>
+      <input id="header-search" name="q" type="text" placeholder="Search products" autocomplete="off">
+    </form>
+    <div class="header-account"><a class="header-link" href="account.html">Ram Shrestha</a> <a class="header-link" href="logout.html">Sign out</a> <a class="header-link cart-count-link" href="cart.html">Bag (1)</a></div>
+  </header>
+
+  <main class="store-main">
+    <div class="page-head">
+      <p class="eyebrow">REVIEW</p>
+      <h1 class="page-title">Review your order</h1>
+    </div>
+        
+    <nav class="steps" aria-label="Checkout progress">
+      <span>1 Delivery</span><span class="arrow" aria-hidden="true">→</span>
+      <span>2 Payment</span><span class="arrow" aria-hidden="true">→</span>
+      <span class="step-current">3 Review</span>
+    </nav>
+
+    <div class="review-layout">
+      <section class="review-card" aria-labelledby="review-details-title">
+        <h2 id="review-details-title">Delivery details</h2>
+        <div class="review-block"><strong>Recipient</strong>Demo Customer · 9800000000</div>
+        <div class="review-block"><strong>Address</strong>Thamel Kathmandu</div>
+        <div class="review-block"><strong>Delivery notes</strong><span class="muted">Sample order</span></div>
+        <div class="review-block"><strong>Payment</strong>Cash on delivery</div>
+        <div class="review-block"><strong>Items</strong>
+                      <p>Wool blend heritage jacket · M · 1 × Rs.12,999</p>
+                  </div>
+      </section>
+
+      <aside class="cart-summary" aria-labelledby="review-summary-title">
+        <h2 id="review-summary-title">Order summary</h2>
+        <div class="summary-row"><span>1 items</span><span>Rs.12,999</span></div>
+        <div class="summary-row"><span>Delivery</span><span>Rs.0</span></div>
+        <div class="summary-row total"><span>Total</span><span>Rs.12,999</span></div>
+        <p class="summary-note">Cash on delivery</p>
+        <form method="post" action="review.html">
+          <input type="hidden" name="csrf_token" value="560738ac145d317ffa1a3972bd3028ca54af4739bcd7b59096638ec040382733">          <button class="btn btn-block" type="submit">Place order</button>
+        </form>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer"><p class="footer-note">Fictitious business — created as part of a university coursework.</p></footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

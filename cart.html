@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your bag — Redline Royale</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="store-page">
+  <header class="site-header"><div class="site-header-inner">
+    <a class="brand" href="index.html">Redline Royale</a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="shop.html">New In</a><a href="shop.html">Clothing</a><a href="shop.html">Shoes</a><a href="shop.html">Accessories</a>
+    </nav>
+    <form class="header-search" role="search" action="shop.html">
+      <label class="sr-only" for="header-search">Search products</label>
+      <input id="header-search" name="q" type="text" placeholder="Search products" autocomplete="off">
+    </form>
+    <div class="header-account"><a class="header-link" href="account.html">Ram Shrestha</a> <a class="header-link" href="logout.html">Sign out</a> <a class="header-link cart-count-link" href="cart.html">Bag (1)</a></div>
+  </header>
+
+  <main class="store-main">
+    <div class="page-head">
+      <p class="eyebrow">SHOPPING CART</p>
+      <h1 class="page-title" id="bag-title">Your bag · 1 item</h1>
+    </div>
+
+    
+    <div class="cart-layout">
+      <section class="cart-panel" id="cart-panel" aria-label="Shopping bag, 1 items">
+                          <article class="cart-item">
+            <img class="ph ph-cart" src="img/wool-jacket.svg" alt="Wool blend heritage jacket">
+            <div class="cart-item-info">
+              <h2 class="cart-item-name">Wool blend heritage jacket · M</h2>
+              <p class="cart-item-price">Rs.12,999</p>
+              <div class="cart-controls">
+                <span>Quantity</span>
+                <form method="post" action="cart.html" class="qty-form">
+                  <input type="hidden" name="csrf_token" value="560738ac145d317ffa1a3972bd3028ca54af4739bcd7b59096638ec040382733">                  <input type="hidden" name="product_id" value="1">
+                  <input type="hidden" name="size" value="M">
+                  <button class="qty-btn" type="submit" name="action" value="decrease" aria-label="Decrease quantity">−</button>
+                </form>
+                <span class="qty-value" aria-live="polite">1</span>
+                <form method="post" action="cart.html" class="qty-form">
+                  <input type="hidden" name="csrf_token" value="560738ac145d317ffa1a3972bd3028ca54af4739bcd7b59096638ec040382733">                  <input type="hidden" name="product_id" value="1">
+                  <input type="hidden" name="size" value="M">
+                  <button class="qty-btn" type="submit" name="action" value="increase" aria-label="Increase quantity">+</button>
+                </form>
+                <form method="post" action="cart.html" class="qty-form">
+                  <input type="hidden" name="csrf_token" value="560738ac145d317ffa1a3972bd3028ca54af4739bcd7b59096638ec040382733">                  <input type="hidden" name="product_id" value="1">
+                  <input type="hidden" name="size" value="M">
+                  <button class="remove-btn" type="submit" name="action" value="remove">Remove</button>
+                </form>
+              </div>
+            </div>
+          </article>
+              </section>
+
+      <aside class="cart-summary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Order summary</h2>
+        <div class="summary-row"><span>Subtotal</span><span>Rs.12,999</span></div>
+        <div class="summary-row"><span>Delivery</span><span>Rs.0</span></div>
+        <div class="summary-row total"><span>Total</span><span>Rs.12,999</span></div>
+        <p class="summary-note">Cash on delivery</p>
+        <a class="btn btn-block" href="checkout.html">Proceed to checkout</a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer"><p class="footer-note">Fictitious business — created as part of a university coursework.</p></footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

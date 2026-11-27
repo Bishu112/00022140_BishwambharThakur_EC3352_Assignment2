@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vendor dashboard — Redline Royale</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="account-page vendor-page">
+  <header class="account-topbar"><div class="account-topbar-inner">
+    <a class="account-brand" href="index.html">Redline Royale</a>
+    <div class="topbar-actions"><a class="header-link" href="logout.html">Sign out</a></div>
+  </div></header>
+
+  <div class="account-shell">
+    <aside class="dash-sidebar"><nav class="dash-nav" aria-label="Vendor account">
+      <a href="vendor.html" class="active" aria-current="page">Overview</a>
+      <a href="vendor-products.html">Products</a>
+      <a href="vendor-orders.html">Orders</a>
+      <a href="vendor-reports.html">Reports</a>
+      <a href="vendor-profile.html">Profile</a>
+    </nav></aside>
+
+    <main class="dash-main">
+      <div class="dash-head compact">
+        <p class="eyebrow">DASHBOARD WELCOME SCREEN</p>
+        <h1 class="page-title">Good morning, Redline Royale !</h1>
+      </div>
+      
+      <div class="stat-grid vendor">
+        <div class="stat-card">Products listed: 6</div>
+        <div class="stat-card">Sold this month: 8</div>
+        <div class="stat-card">Revenue this month: Rs.73,792</div>
+        <div class="stat-card">Pending requests: 1</div>
+      </div>
+
+      <div class="vendor-overview-grid">
+        <section class="dash-card vendor-orders-card" aria-labelledby="vendor-recent-title">
+          <h2 id="vendor-recent-title">Recent orders and status</h2>
+                      <p>RR-261127203714-B63C / Ram Shrestha / New request / Rs.12,999</p>
+                      <p>RR-261127202302-D6E9 / Ram Shrestha / Discarded / Rs.6,499</p>
+                      <p>RR-1004 / Sita Gurung / Delivered / Rs.8,999</p>
+                            </section>
+        <section class="dash-card quick-actions-card" aria-labelledby="quick-actions-title">
+          <h2 id="quick-actions-title">Quick actions</h2>
+          <a class="btn btn-block" href="vendor-products.html">Add a product</a>
+          <a class="btn btn-block" href="vendor-orders.html">Review order requests</a>
+          <p class="business-status">Business profile: <span class="active">Active</span></p>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer"><p class="footer-note">Fictitious business — created as part of a university coursework.</p></footer>
+  <script src="js/app.js"></script>
+</body>
+</html>
