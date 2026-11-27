@@ -1,0 +1,4 @@
+-- Historical migration for an older database layout. It is intentionally
+-- disabled because its source schema and constraint names are not guaranteed.
+-- The current Assessment 2 schema is database/redline_royale.sql. For a fresh
+-- database, import that file; do not run this historical migration.
